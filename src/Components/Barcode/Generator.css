@@ -1,0 +1,88 @@
+.QR-inp{
+  width: auto;
+  height: 8rem;
+  margin: 12px;
+  font-size: larger;
+  padding: 10px;
+  font-family: monospace;
+  border-radius: 12px;
+}
+.QR-btn{
+    margin: 12px;
+}
+.content{
+   display: flex;
+   flex-direction: column;
+}
+.btn1 {
+    font-size: 1.5rem;
+    font-family: monospace;
+    color: #fafafa;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+    background: #252525;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .btn1:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+  }
+  .btn1:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }
+  .generate-img{
+    width: 200px;
+    height: auto;
+    margin: 12px;
+  }
+  .wrap{
+    display: flex;
+    justify-content: center;
+  }
+  .custom-toast {
+    position: fixed !important; /* Fix the toast relative to the viewport */
+    top: 60px !important; /* Adjust this value if you want it closer or further */
+    transform: translateX(-50%);
+    z-index: 9999; /* Ensure it's on top */
+}
+
+
+
+.container2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card2{
+  margin: 20px;
+}
+.label1{
+  color: white;
+  font-family: monospace;
+}
+.color{
+  display: flex;
+  align-content: center;
+  width: 100%;
+}
+.range{
+  display: flex;
+  align-content: center;
+}
+.download{
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+.down-container{
+ margin: 30px;
+ display: flex;
+ justify-content: center;
+}

@@ -1,0 +1,93 @@
+import React, { useState } from 'react';
+import QRCode from 'qrcode';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Generator.css';
+
+const QRCodeGenerator = () => {
+  const [text, setText] = useState('');
+  const [qrColor, setQrColor] = useState('#000000'); // Default color: black
+  const [qrSize, setQrSize] = useState(200); // Default size: 200x200 pixels
+  const [qrImage, setQrImage] = useState(null); // State to store the QR code image URL
+
+  const generateQRCode = async () => {
+    if (!text.trim()) {
+      toast.error('Please enter text to encode.');
+      return;
+    }
+
+    try {
+      const options = {
+        color: {
+          dark: qrColor, // QR code color
+          light: '#FFFFFF', // Background color (white)
+        },
+        width: qrSize, // Size of the QR code
+      };
+
+      const url = await QRCode.toDataURL(text, options);
+      setQrImage(url);
+      toast.success('QR Code generated successfully!');
+    } catch (error) {
+      console.error('Error generating QR code:', error);
+      toast.error('Error generating QR code. Please try again.');
+    }
+  };
+
+  const downloadQRCode = () => {
+    if (qrImage) {
+      const link = document.createElement('a');
+      link.href = qrImage;
+      link.download = 'qrcode.png';
+      link.click();
+    } else {
+      toast.warn('Generate a QR code before downloading.');
+    }
+  };
+
+  return (
+    <div className='content'>
+      <textarea
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter text to encode"
+        className='QR-inp'
+      />
+
+      <div className='container2'>
+      <div className='card2'>
+        <label className='label1'>Color:</label>
+        <input
+          type="color"
+          value={qrColor}
+          onChange={(e) => setQrColor(e.target.value)}
+          className='color'
+        />
+      </div>
+
+      <div className='card2'>
+        <label className='label1'>Size:</label>
+        <input
+          type="range"
+          min="100"
+          max="500"
+          value={qrSize}
+          onChange={(e) => setQrSize(e.target.value)}
+          className='range'
+        />
+        <span className='label1'>{qrSize} px</span>
+      </div>
+
+      <button onClick={generateQRCode} className='btn1' style={{ margin: '15px' }}>Generate QR Code</button>
+
+      {qrImage && <img src={qrImage} alt="QR Code" style={{ display: 'block', marginTop: '15px', maxWidth: '100%' }} />}
+
+      <button onClick={downloadQRCode} className='btn1' style={{ marginTop: '15px' }}>Download QR Code</button>
+
+      <ToastContainer closeOnClick={true} className="custom-toast" />
+    </div>
+  );
+};
+
+export default QRCodeGenerator;
