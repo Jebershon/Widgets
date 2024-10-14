@@ -1,0 +1,49 @@
+body{
+    background-color: black;
+}
+.Border{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(226, 132, 65);
+    width: 100%;
+    height: 400px;
+    align-items: end;
+}
+.c1{
+   margin-top: 350px;
+}
+.c2{
+    margin-top: 350px;
+}
+.bt1{
+  width: max-content;
+  padding: 50px;
+  border-radius: 15px;
+  border: 7px solid rgb(0, 0, 0);
+  background-color: rgb(226, 132, 65);
+  color: white;
+  font-size: larger;
+  transition: 2s;
+}
+.bt2{
+    width: max-content;
+    padding: 50px;
+    border-radius: 15px;
+    border: 7px solid rgb(0, 0, 0);
+    background-color: rgb(226, 132, 65);
+    color: white;
+    font-size: larger;
+    transition: 2s;
+}
+.bt1:hover{
+    background-color: rgb(228, 188, 159);
+    color: black;
+    transform: scale(1.1);
+}
+.bt2:hover{
+    background-color: rgb(228, 188, 159);
+    color: black;
+    transform: scale(1.1);
+}

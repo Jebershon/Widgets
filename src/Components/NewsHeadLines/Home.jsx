@@ -39,7 +39,8 @@ const Home = () => {
   };
 
   return (
-    <div className="news-widget">
+    <>
+    <div className="news-widget" style={{marginTop:"40px"}}>
       <h3 className="widget-title">Latest News</h3>
 
       <form onSubmit={handleSearch} className="search-form">
@@ -91,6 +92,7 @@ const Home = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
